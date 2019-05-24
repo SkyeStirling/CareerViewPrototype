@@ -1,68 +1,109 @@
-$(function() {
+// $(function() {
 
-    var $sidebar   = $("#navigation"), 
-        $window    = $(window),
-        offset     = $sidebar.offset(),
-        topPadding = 15;
+//     var $sidebar   = $("#moving-nav"), 
+//         $window    = $(window),
+//         offset     = $sidebar.offset(),
+//         topPadding = 15;
 
-    $window.scroll(function() {
-        if ($window.scrollTop() > offset.top) {
-            $sidebar.stop().animate({
-                marginTop: $window.scrollTop() - offset.top + topPadding
-            }, 1000);
-        } else {
-            $sidebar.stop().animate({
-                marginTop: 0
-            });
-        }
-    });
+//     $window.scroll(function() {
+//         if ($window.scrollTop() > offset.top) {
+//             $sidebar.stop().animate({
+//                 marginTop: $window.scrollTop() - offset.top + topPadding
+//             });
+//         } else {
+//             $sidebar.stop().animate({
+//                 marginTop: 0
+//             });
+//         }
+//     });
     
+// });
+
+console.log("working?");
+
+var section1;
+var section2;
+var section3;
+var section4;
+var section5;
+var section6;
+
+window.addEventListener('load', function() {
+    section1 = document.getElementById("1").offsetTop;
+    section2 = document.getElementById("2").offsetTop;
+    section3 = document.getElementById("3").offsetTop;
+    section4 = document.getElementById("4").offsetTop;
+    section5 = document.getElementById("5").offsetTop;
+    section6 = document.getElementById("6").offsetTop;
 });
 
-$("#b1").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#1").offset().top
-    }, 1200);
+window.addEventListener('resize', function() {
+    section1 = document.getElementById("1").offsetTop;
+    section2 = document.getElementById("2").offsetTop;
+    section3 = document.getElementById("3").offsetTop;
+    section4 = document.getElementById("4").offsetTop;
+    section5 = document.getElementById("5").offsetTop;
+    section6 = document.getElementById("6").offsetTop;
 });
 
-$("#b2").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#2").offset().top
-    }, 1200);
-});
 
-$("#b3").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#3").offset().top
-    }, 1200);
-});
+window.onscroll = function() {myFunction()};
 
-$("#b4").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#4").offset().top
-    }, 1200);
-});
+function myFunction() {
 
-$("#b5").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#5").offset().top
-    }, 1200);
-});
+    document.getElementById("moving-nav").style.marginTop = window.scrollY  + 100 + "px";
 
-$("#b6").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#6").offset().top
-    }, 1200);
-});
+    if (window.scrollY  > 150) {
+        document.getElementById('moving-nav').style.opacity = "1";
+    } else {
+        document.getElementById('moving-nav').style.opacity = "0";
+    }
 
-$("#b7").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#7").offset().top
-    }, 1200);
-});
 
-$("#b8").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#8").offset().top
-    }, 1200);
-});
+
+    if (window.scrollY  + (window.innerHeight*0.9) > section2) {
+        document.getElementById("nav-item2").className = "upTo";
+    } else {
+        document.getElementById("nav-item2").className = "";
+    }
+    
+    if (window.scrollY  + (window.innerHeight*0.9) > section3) {
+        document.getElementById("nav-item3").className = "upTo";
+    } else {
+        document.getElementById("nav-item3").className = "";
+    }
+    
+    if (window.scrollY  + (window.innerHeight*0.9) > section4) {
+        document.getElementById("nav-item4").className = "upTo";
+    } else {
+        document.getElementById("nav-item4").className = "";
+    }
+    
+    if (window.scrollY  + (window.innerHeight*0.9) > section5) {
+        document.getElementById("nav-item5").className = "upTo";
+    } else {
+        document.getElementById("nav-item5").className = "";
+    }
+    
+    if (window.scrollY  + (window.innerHeight*0.9) > section6) {
+        document.getElementById("nav-item6").className = "upTo";
+    } else {
+        document.getElementById("nav-item6").className = "";
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
